@@ -11,4 +11,8 @@ public class Payments extends Screen
 
     }
 
+    public String display(){
+        return "Find Store\nEnable Payments";
+    }
+
 }
