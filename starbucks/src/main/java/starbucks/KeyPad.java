@@ -29,11 +29,16 @@ public class KeyPad implements ITouchEventHandler, IDisplayComponent, IKeyPadSub
             this.lastKey = getKey( x, y ) ;
             if ( x==3 && y==8   )
             {
-                countPinDigits-- ;
+                if(countPinDigits > 0){
+                    countPinDigits-- ;
+                }
             }
             else if ( y < 8 || (x==2 && y==8))
             {
                 countPinDigits++ ;
+                if(countPinDigits == 5){
+                    countPinDigits = 1;
+                }
             }
             notifyObservers() ;            
         }

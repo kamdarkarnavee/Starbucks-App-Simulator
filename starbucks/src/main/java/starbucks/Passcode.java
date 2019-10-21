@@ -3,10 +3,18 @@
 package starbucks ;
 
 /** Passcode Screen Component */
-public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadObserver
+public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadObserver, IPinAuthObserver
 {
     ITouchEventHandler nextHandler ;
+    IPinStateMachine pm;
     private int count = 0;
+    private boolean authenticated = false ;
+
+
+    public Passcode(){
+        pm = new PinEntryMachine();
+        ((IPinAuthSubject)pm).registerObserver(this);
+    }
 
     /**
      * Touch Event Ignored by Passcode
@@ -37,7 +45,7 @@ public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadO
     
     
     /**
-     * Display "Echo Feedback" on Pins enterred so far
+     * Display "Echo Feedback" on Pins entered so far
      * @return Passcode String for Display
      */
     public String display() 
@@ -45,11 +53,15 @@ public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadO
         String value = "" ;
         switch ( count )
         {
-            case 0: value = " [_][_][_][_]" ; break ;
-            case 1: value = " [*][_][_][_]" ; break ;
-            case 2: value = " [*][*][_][_]" ; break ;
-            case 3: value = " [*][*][*][_]" ; break ;
-            case 4: value = " [*][*][*][*]" ; break ;
+            case 0: value = "\n [_][_][_][_]" ; break ;
+            case 1: value = "\n [*][_][_][_]" ; break ;
+            case 2: value = "\n [*][*][_][_]" ; break ;
+            case 3: value = "\n [*][*][*][_]" ; break ;
+            case 4:
+                    if(!authenticated){
+                        value = "  Invalid Pin\n\n [_][_][_][_]" ; break ;
+                    }
+
         }
          return value  ;
     }
@@ -73,4 +85,12 @@ public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadO
         System.err.println( "Key: " + key ) ;
         count = c ;
     }
+
+    /**
+     * Receive Authenticated Event from Authenticator
+     */
+    public void authEvent() {
+        this.authenticated = true ;
+    }
 }
+

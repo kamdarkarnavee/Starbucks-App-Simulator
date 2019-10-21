@@ -3,6 +3,7 @@
 package starbucks ;
 
 import java.io.Console;
+import java.util.Scanner;
 
 /**
  * Main Entry Point.
@@ -24,7 +25,8 @@ final class Main {
     public static void main(final String[] args) {
         System.err.println( "Args: " + args ) ;
         IApp app = new AppAuthProxy() ;
-        Console c = System.console();
+//        Console c = System.console();
+        Scanner c = new Scanner(System.in);
         String msg = "" ;
         for (;;) {
             System.out.print("\033[H\033[2J") ; // clear the screen
@@ -32,7 +34,8 @@ final class Main {
             System.out.println(app.screenContents()) ;
             System.out.println( msg ) ;
             System.out.print("=> ") ;
-            String ch = c.readLine() ;       // get user command
+//            String ch = c.readLine() ;       // get user command
+            String ch = c.nextLine();
             String cmd = ch.toLowerCase() ;  // convert to lower case
             cmd = cmd.replaceAll("\\s","") ; // remove all whitespaces
                    

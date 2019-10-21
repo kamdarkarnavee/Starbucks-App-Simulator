@@ -92,7 +92,7 @@ public class AppAuthProxy implements IApp, IPinAuthObserver {
             String out = "" ;
             out = "----------------\n" ;
             out += "   " + ps.name() + "  \n" ;
-            out += "----------------\n\n\n" ;
+            out += "----------------\n" ;
             out += ps.display() ;
             out += "\n\n\n----------------\n" ;
             return out ;
