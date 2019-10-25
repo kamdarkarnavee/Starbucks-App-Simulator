@@ -2,10 +2,12 @@
 
 package starbucks ;
 
+import java.util.ArrayList;
+
 /**
  * Frame Class -- Container for Screens
  */
-public class Frame implements IFrame
+public class Frame implements IFrame, IAppFrameSubject
 {
     private IScreen current ;
     private IMenuInvoker menuA = new MenuOption() ;
@@ -16,6 +18,8 @@ public class Frame implements IFrame
     private IOrientationStrategy portraitStrategy ;
     private IOrientationStrategy landscapeStrategy ;
     private IOrientationStrategy currentStrategy ;
+    private ArrayList<IAppFrameObserver> registeredObservers = new ArrayList<>();
+
 
     /**
      * Return Screen Name
@@ -110,6 +114,8 @@ public class Frame implements IFrame
     public Frame(IScreen initial)
     {
         current = initial ;
+        attach((IAppFrameObserver) current);
+        notifyObservers();
 
         portraitStrategy = new IOrientationStrategy() 
         {
@@ -232,7 +238,9 @@ public class Frame implements IFrame
     public void setCurrentScreen( IScreen s )
     {
         current = s ;
+        notifyObservers();
     }
+
 
     /**
      * Configure Selections for Command Pattern 
@@ -268,6 +276,7 @@ public class Frame implements IFrame
     { 
         if ( current != null )
         {
+
             return currentStrategy.contents( current ) ; 
         } 
         else 
@@ -312,5 +321,23 @@ public class Frame implements IFrame
 
     /** Select Command E */
     public void selectE() { currentStrategy.selectE();  }
+
+    @Override
+    public void attach(IAppFrameObserver obj) {
+        registeredObservers.add(obj);
+    }
+
+    @Override
+    public void remove(IAppFrameObserver obj) {
+        registeredObservers.remove(obj);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for(int i = 0; i < registeredObservers.size(); i++){
+            IAppFrameObserver obj = registeredObservers.get(i);
+                obj.frameUpdate(this);
+        }
+    }
 
 }

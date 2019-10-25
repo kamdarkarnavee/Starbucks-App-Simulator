@@ -182,7 +182,7 @@ public class PinEntryMachine implements IPinStateMachine, IKeyPadObserver, IPinA
         else if ( key.equals("X") )
             backspace() ;
         else
-            number( key ) ;        
+            number( key ) ;
     }    
 
     /**

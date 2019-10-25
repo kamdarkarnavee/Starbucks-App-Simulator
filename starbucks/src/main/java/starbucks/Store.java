@@ -22,4 +22,7 @@ public class Store extends Screen
         return store_location;
     }
 
+    public void touch(int x, int y){
+
+    }
 }

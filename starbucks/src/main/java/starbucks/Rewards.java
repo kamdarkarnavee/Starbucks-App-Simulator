@@ -15,4 +15,7 @@ public class Rewards extends Screen
         return "Make Every\nVisit Count";
     }
 
+    public void touch(int x, int y){
+
+    }
 }

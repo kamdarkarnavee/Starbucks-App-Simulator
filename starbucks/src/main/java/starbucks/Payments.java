@@ -15,4 +15,8 @@ public class Payments extends Screen
         return "Find Store\nEnable Payments";
     }
 
+    public void touch(int x, int y){
+
+    }
+
 }
