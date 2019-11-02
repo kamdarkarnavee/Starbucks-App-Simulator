@@ -72,6 +72,8 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
     @Override
     public void frameUpdate(IFrame frame) {
         this.frame = frame;
+        cn = new CardNumber();
+        cc = new CardCode();
     }
 
     @Override
