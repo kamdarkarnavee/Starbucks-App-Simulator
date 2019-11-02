@@ -50,6 +50,11 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
             }
         }
     }
+    
+    private void resetCardDetails(){
+        cn = new CardNumber();
+        cc = new CardCode();
+    }
 
     public void next(){
         if( cn.getCardValue().length() == 9 && cc.getCardValue().length() == 3){
@@ -58,8 +63,7 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
             ((MyCards)card).setBalance(20);
             frame.cmd("A");
             ((MyCards) card).setMyCardPay(cardNumber);
-            cn = new CardNumber();
-            cc = new CardCode();
+            resetCardDetails();
         }
     }
 
@@ -72,8 +76,7 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
     @Override
     public void frameUpdate(IFrame frame) {
         this.frame = frame;
-        cn = new CardNumber();
-        cc = new CardCode();
+        resetCardDetails();
     }
 
     @Override
