@@ -10,8 +10,6 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
     private IFrame frame;
     private KeyPad kp;
     private String cardCode;
-    private int pinCount;
-    private String key;
     private IScreen card;
     private CardNumber cn;
     private CardCode cc;
@@ -23,7 +21,6 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
         this.cardNumber = "";
         this.cardCode = "";
         this.kp = new KeyPad();
-        this.kp.attach(this);
         this.card = myCards;
         this.state = null;
         cn = new CardNumber();
@@ -45,9 +42,10 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
         } else if(x == 2 && y == 3){
             this.state = cc;
         }else{
-            if(state != null){
-                this.state.touch(x, y);
+            if(state == null){
+                this.state = cn;
             }
+            this.state.touch(x, y);
         }
     }
     
@@ -81,7 +79,5 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
 
     @Override
     public void keyEventUpdate(int numKeys, String key) {
-        this.pinCount = numKeys;
-        this.key = key;
     }
 }

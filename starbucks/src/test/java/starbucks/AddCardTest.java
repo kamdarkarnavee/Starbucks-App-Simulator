@@ -36,7 +36,6 @@ public class AddCardTest
         app.touch(1,1) ; // Add New Card
         assertEquals("AddCard", app.screen());
         // Card Id digits
-//        app.touch(2,2);
         app.touch(1,5); // 1
         app.touch(2,5); // 2
         app.touch(3,5); // 3
@@ -79,7 +78,6 @@ public class AddCardTest
         app.touch(1,1) ; // Add New Card
         assertEquals("AddCard", app.screen());
         // Card Id digits
-//        app.touch(2,2);
         app.touch(1,5); // 1
         app.touch(2,6); // 5
         app.touch(3,7); // 9
