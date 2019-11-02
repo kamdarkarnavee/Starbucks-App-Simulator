@@ -7,14 +7,15 @@ public class MyCardsPay extends Screen implements ITouchEventHandler, IAppFrameO
 {
     ITouchEventHandler nextHandler;
     IFrame frame;
+    String cardNumber;
 
     public MyCardsPay()
     {
-
+        this.cardNumber = "000000000";
     }
 
     public String display(){
-        return "[]\n\n\nScan Now\n";
+        return "["+ cardNumber +"]\n\n\nScan Now\n";
     }
 
     public void touch(int x, int y) {

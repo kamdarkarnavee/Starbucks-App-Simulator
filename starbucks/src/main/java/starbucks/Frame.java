@@ -36,11 +36,13 @@ public class Frame implements IFrame, IAppFrameSubject
     /** Nav to Previous Screen */
     public void previousScreen() {
         // add code here
+        current.prev();
     }
 
     /** Nav to Next Screen */
     public void nextScreen() {
         // add code here
+        current.next();
     }
 
 
@@ -238,6 +240,8 @@ public class Frame implements IFrame, IAppFrameSubject
     public void setCurrentScreen( IScreen s )
     {
         current = s ;
+        if(!registeredObservers.contains(current))
+            attach((IAppFrameObserver) current);
         notifyObservers();
     }
 

@@ -55,13 +55,13 @@ public class MyCards extends Screen implements IAppFrameObserver
         }
     }
 
+    public void setMyCardPay(String cardNumber){
+        ((MyCardsPay)cp).cardNumber = cardNumber;
+    }
+
     @Override
     public void frameUpdate(IFrame frame) {
         this.frame = (Frame) frame;
-        this.frame.attach((IAppFrameObserver) cp);
-        this.frame.attach((IAppFrameObserver) co);
-        this.frame.attach((IAppFrameObserver) cm);
-
     }
 }
 

@@ -9,11 +9,17 @@ public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadO
     IPinStateMachine pm;
     private int count = 0;
     private boolean authenticated = false ;
+    private KeyPad kp;
 
 
     public Passcode(){
         pm = new PinEntryMachine();
         ((IPinAuthSubject)pm).registerObserver(this);
+    }
+
+    public Passcode(KeyPad kp){
+        this();
+        this.kp = kp;
     }
 
     /**
@@ -58,10 +64,10 @@ public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadO
             case 2: value = "\n [*][*][_][_]" ; break ;
             case 3: value = "\n [*][*][*][_]" ; break ;
             case 4:
+                    kp.setCountPinDigits(0);
                     if(!authenticated){
                         value = "  Invalid Pin\n\n [_][_][_][_]" ; break ;
                     }
-
         }
          return value  ;
     }
@@ -83,7 +89,7 @@ public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadO
     public void keyEventUpdate( int c, String key ) 
     {
         System.err.println( "Key: " + key ) ;
-        count = c ;
+        this.count = c ;
     }
 
     /**

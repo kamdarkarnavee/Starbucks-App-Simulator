@@ -17,7 +17,7 @@ public class AppAuthProxy implements IApp, IPinAuthObserver {
 
     public AppAuthProxy() {
         kp = new KeyPad() ;
-        pc = new Passcode() ;
+        pc = new Passcode(kp) ;
         sp = new Spacer() ;
         ps = new PinScreen() ;
         pm = new PinEntryMachine() ;
@@ -130,6 +130,8 @@ public class AppAuthProxy implements IApp, IPinAuthObserver {
      */
     public void authEvent() {
         this.authenticated = true ;
+        kp.removeObserver(pc);
+        kp.removeObserver(pm);
     }
 
 

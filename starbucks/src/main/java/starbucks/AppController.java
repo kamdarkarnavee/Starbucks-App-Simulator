@@ -24,7 +24,7 @@ public class AppController implements IApp {
         store = new Store() ;
         rewards = new Rewards() ;
         payments = new Payments() ;
-        settings = new Settings() ;
+        settings = new Settings(mycards) ;
         frame = new Frame( mycards ) ;
 
         // setup command pattern

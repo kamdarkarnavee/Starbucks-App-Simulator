@@ -3,8 +3,9 @@
 package starbucks ;
 
 /** Payments Screen */
-public class Payments extends Screen
+public class Payments extends Screen implements IAppFrameObserver
 {
+    IFrame frame;
 
     public Payments()
     {
@@ -19,4 +20,8 @@ public class Payments extends Screen
 
     }
 
+    @Override
+    public void frameUpdate(IFrame frame) {
+        this.frame = frame;
+    }
 }

@@ -1,41 +1,39 @@
-
-
 package starbucks;
 
 import java.util.ArrayList;
 
 /** Settings Screen */
-public class Settings extends Screen implements IDisplayComponent
+public class Settings extends Screen implements IDisplayComponent, IAppFrameObserver
 {
-//    ITouchEventHandler chain ;
-    ArrayList<IDisplayComponent> components;
-    AddCard ac;
-    PinScreen ps;
+    private ArrayList<IDisplayComponent> components;
+    private AddCard ac;
+    private PinScreen ps;
+    private IFrame frame;
+    private IScreen myCards;
 
-    public Settings()
+    public Settings(IScreen myCards)
     {
-       components = new ArrayList<>();
-       ac = new AddCard();
-       ps = new PinScreen();
-       ps.addSubComponent(ac);
+        this.myCards = myCards;
+        components = new ArrayList<>();
+        ac = new AddCard(myCards);
+        ps = new PinScreen();
+        ps.addSubComponent(ac);
     }
 
     public String display(){
-        String setting_options = ac.display() + "Delete Card\n" + "Billing\n" + "Passcode\n\n" +
+        String setting_options = "Add Card\n" + "Delete Card\n" + "Billing\n" + "Passcode\n\n" +
                                  "About | Terms\n" + "Help";
         return setting_options;
     }
 
     public void touch(int x, int y){
-
+        if(y == 1 && (x == 1 || x == 2 || x == 3)){
+            frame.setCurrentScreen(ac);
+        }
     }
-//    public void addSubComponent( IDisplayComponent c )
-//    {
-//        components.add( c ) ;
-//        if (components.size() == 1 )
-//        {
-//            chain = (ITouchEventHandler) c ;
-//        }
-//    }
 
+    @Override
+    public void frameUpdate(IFrame frame) {
+        this.frame = frame;
+    }
 }

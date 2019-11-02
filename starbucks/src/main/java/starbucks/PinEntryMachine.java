@@ -19,7 +19,7 @@ public class PinEntryMachine implements IPinStateMachine, IKeyPadObserver, IPinA
     private String pin = "1234" ;
     private boolean authenticated = false ;
     private int pinCount=0 ;
-    private IPinAuthObserver auth ; // single observer 
+    private IPinAuthObserver auth ; // single observer
 
     // pin machine states
     private NoPinDigits pin0 ;
@@ -42,7 +42,7 @@ public class PinEntryMachine implements IPinStateMachine, IKeyPadObserver, IPinA
      * Constructor - Set Up State Objects
      * and Set Initial State to "PIN 0"
      */
-    public PinEntryMachine( )
+    public PinEntryMachine()
     {
         pin0 = new NoPinDigits( this ) ;
         pin1 = new OnePinDigit( this ) ;
