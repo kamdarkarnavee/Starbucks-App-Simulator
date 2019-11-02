@@ -8,10 +8,13 @@ public class MyCardsPay extends Screen implements ITouchEventHandler, IAppFrameO
     ITouchEventHandler nextHandler;
     IFrame frame;
     String cardNumber;
+    MyCards card;
+    private double balance;
 
-    public MyCardsPay()
+    public MyCardsPay(MyCards card)
     {
         this.cardNumber = "000000000";
+        this.card = card;
     }
 
     public String display(){
@@ -26,9 +29,19 @@ public class MyCardsPay extends Screen implements ITouchEventHandler, IAppFrameO
         }else if(x == 3 && y == 3){
             frame.cmd("A");
         }
+        else if(y == 2 && (x == 2 || x == 3)){
+            doPayment();
+        }
         else{
             if ( nextHandler != null )
                 nextHandler.touch(x, y);
+        }
+    }
+
+    public void doPayment(){
+        balance = card.getBalance();
+        if(balance >= 1.5){
+            card.setBalance(balance - 1.5);
         }
     }
 

@@ -17,7 +17,7 @@ public class MyCards extends Screen implements IAppFrameObserver
     public MyCards()
     {
         balance = 0;
-        cp = new MyCardsPay();
+        cp = new MyCardsPay(this);
         co = new MyCardsOptions();
         cm = new MyCardsMoreOptions();
 

@@ -37,6 +37,7 @@ public class PaymentsTest
         app.touch(1,1) ; // Add New Card
         assertEquals("AddCard", app.screen());
         // Card Id digits
+        app.touch(2,2);
         app.touch(1,5); 
         app.touch(2,5);
         app.touch(3,5);
