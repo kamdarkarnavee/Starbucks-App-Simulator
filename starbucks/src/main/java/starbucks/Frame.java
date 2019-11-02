@@ -328,7 +328,8 @@ public class Frame implements IFrame, IAppFrameSubject
 
     @Override
     public void attach(IAppFrameObserver obj) {
-        registeredObservers.add(obj);
+        if(!registeredObservers.contains(obj))
+            registeredObservers.add(obj);
     }
 
     @Override

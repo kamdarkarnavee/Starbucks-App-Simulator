@@ -15,7 +15,7 @@ public class MyCardsPay extends Screen implements ITouchEventHandler, IAppFrameO
     }
 
     public String display(){
-        return "["+ cardNumber +"]\n\n\nScan Now\n";
+        return "\n["+ cardNumber +"]\n\n\nScan Now\n";
     }
 
     public void touch(int x, int y) {

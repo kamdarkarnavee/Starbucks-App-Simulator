@@ -58,9 +58,9 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
             ((MyCards)card).setBalance(20);
             frame.cmd("A");
             ((MyCards) card).setMyCardPay(cardNumber);
+            cn = new CardNumber();
+            cc = new CardCode();
         }
-        cn = new CardNumber();
-        cc = new CardCode();
     }
 
     public void prev(){

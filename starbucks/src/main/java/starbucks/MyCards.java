@@ -62,6 +62,9 @@ public class MyCards extends Screen implements IAppFrameObserver
     @Override
     public void frameUpdate(IFrame frame) {
         this.frame = (Frame) frame;
+        this.frame.attach((IAppFrameObserver) cp);
+        this.frame.attach((IAppFrameObserver) co);
+        this.frame.attach((IAppFrameObserver) cm);
     }
 }
 
