@@ -4,7 +4,7 @@ package starbucks;
 /**
  * Add New Card Screen
  */
-public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObserver, IKeyPadObserver
+public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObserver
 {
     private String cardNumber;
     private IFrame frame;
@@ -22,9 +22,7 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
         this.cardCode = "";
         this.kp = new KeyPad();
         this.card = myCards;
-        this.state = null;
-        cn = new CardNumber();
-        cc = new CardCode();
+        resetCardDetails();
     }
 
     public String display(){
@@ -50,8 +48,9 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
     }
     
     private void resetCardDetails(){
-        cn = new CardNumber();
-        cc = new CardCode();
+        this.cn = new CardNumber();
+        this.cc = new CardCode();
+        this.state = null;
     }
 
     public void next(){
@@ -75,9 +74,5 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
     public void frameUpdate(IFrame frame) {
         this.frame = frame;
         resetCardDetails();
-    }
-
-    @Override
-    public void keyEventUpdate(int numKeys, String key) {
     }
 }
