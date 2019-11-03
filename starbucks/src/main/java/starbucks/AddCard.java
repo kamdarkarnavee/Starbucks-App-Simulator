@@ -65,8 +65,7 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
     }
 
     public void prev(){
-        cn = new CardNumber();
-        cc = new CardCode();
+        resetCardDetails();
         frame.cmd("E");
     }
 
