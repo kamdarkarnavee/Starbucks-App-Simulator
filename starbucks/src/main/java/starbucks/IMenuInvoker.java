@@ -1,16 +1,18 @@
+package starbucks;
 
-
-package starbucks ;
-
-/** Menu Invoker Interfaces */
-public interface IMenuInvoker
-{
+/**
+ * Menu Invoker Interfaces
+ */
+public interface IMenuInvoker {
     /**
      * Set Command for Invoker
+     *
      * @param c Command Object
      */
-    void setCommand( IMenuCommand c ) ;
+    void setCommand(IMenuCommand c);
 
-    /** Invoke Menu Function */
-    void invoke() ;
+    /**
+     * Invoke Menu Function
+     */
+    void invoke();
 }

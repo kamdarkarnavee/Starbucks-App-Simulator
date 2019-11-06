@@ -1,52 +1,55 @@
+package starbucks;
 
-
-package starbucks ;
-
-/** Screen Interface */
-public interface IScreen
-{
-
+/**
+ * Screen Interface
+ */
+public interface IScreen {
     /**
      * Send touch events to screen
+     *
      * @param x Touch X
      * @param y Touch Y
      */
-    void touch(int x, int y) ;              
+    void touch(int x, int y);
 
     /**
      * Displays screen components
+     *
      * @return Return Screen Contents
      */
-    String display() ;       
+    String display();
 
     /**
      * Returns name of screen
+     *
      * @return Screen Name
      */
-    String name() ;                         
+    String name();
 
     /**
      * Navigate to next screen
      */
-    void next() ;                           
+    void next();
 
     /**
      * Navigate to previous screen
      */
-    void prev() ;      
+    void prev();
 
     /**
      * Set next screen with action name
+     *
      * @param s Screen
      * @param n Action
      */
-    void setNext(IScreen s, String n ) ;    
+    void setNext(IScreen s, String n);
 
     /**
      * Set previous screen with action name
+     *
      * @param s Screen
      * @param n Action
      */
-    void setPrev(IScreen s, String n ) ;    
+    void setPrev(IScreen s, String n);
 
 }

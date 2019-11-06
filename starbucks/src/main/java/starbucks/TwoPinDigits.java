@@ -1,40 +1,47 @@
+package starbucks;
 
-package starbucks ;
-
-/** To Pin Digits State */
-public class TwoPinDigits implements IPinState
-{
-    IPinStateMachine machine ;
+/**
+ * To Pin Digits State
+ */
+public class TwoPinDigits implements IPinState {
+    IPinStateMachine machine;
 
 
     /**
      * Constructor
-     * @param  m Reference to State Machine
-     */    
-    public TwoPinDigits( IPinStateMachine m )
-    {
-        this.machine = m ;
+     *
+     * @param m Reference to State Machine
+     */
+    public TwoPinDigits(IPinStateMachine m) {
+        this.machine = m;
     }
 
-    /** Backspace Event */
+    /**
+     * Backspace Event
+     */
     public void backspace() {
-        machine.setStateOnePinDigit( null );
+        machine.setStateOnePinDigit(null);
     }
 
     /**
      * Number Event
+     *
      * @param digit Digit pressed
      */
-    public void number( String digit ) {
-        machine.setStateThreePinDigits( digit ) ;
+    public void number(String digit) {
+        machine.setStateThreePinDigits(digit);
     }
 
-    /** Valid Pin Event */
+    /**
+     * Valid Pin Event
+     */
     public void validPin() {
 
     }
 
-    /** Invalid Pin Event */
+    /**
+     * Invalid Pin Event
+     */
     public void invalidPin() {
 
     }

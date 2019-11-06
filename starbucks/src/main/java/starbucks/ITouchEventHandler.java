@@ -1,13 +1,13 @@
+package starbucks;
 
-
-package starbucks ;
-
-/** Touch Event Handlers */
-public interface ITouchEventHandler
-{
+/**
+ * Touch Event Handlers
+ */
+public interface ITouchEventHandler {
 
     /**
      * Touch Event at X and Y
+     *
      * @param x X Coord
      * @param y Y Coord
      */
@@ -15,7 +15,8 @@ public interface ITouchEventHandler
 
     /**
      * Set Next Handler in Event Chain
+     *
      * @param next Next Handler Object
      */
-    void setNext( ITouchEventHandler next) ;
+    void setNext(ITouchEventHandler next);
 }

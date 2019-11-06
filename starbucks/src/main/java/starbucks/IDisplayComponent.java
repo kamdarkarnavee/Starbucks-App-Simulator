@@ -1,19 +1,20 @@
+package starbucks;
 
-
-package starbucks ;
-
-/** Display Component Interface */
-public interface IDisplayComponent
-{
+/**
+ * Display Component Interface
+ */
+public interface IDisplayComponent {
     /**
      * Return Display Component Contents
+     *
      * @return Display Component Contents
      */
-    String display() ;
+    String display();
 
     /**
      * Add A Child Component
+     *
      * @param c Child Component
      */
-    void addSubComponent( IDisplayComponent c ) ;
+    void addSubComponent(IDisplayComponent c);
 }

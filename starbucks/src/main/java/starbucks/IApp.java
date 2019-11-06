@@ -1,62 +1,63 @@
-
-
-package starbucks ;
+package starbucks;
 
 /**
  * App Interface -- Actions Users can Take.
  */
-public interface IApp
-{
+public interface IApp {
 
     /**
      * Switch to landscape view
      */
-    void landscape() ;
+    void landscape();
 
     /**
      * Switch to portrait view
      */
-    void portrait() ;           
+    void portrait();
 
     /**
      * Send touch event to current screen
+     *
      * @param x Touch at X Coord
      * @param y Touch at Y Coord
      */
-    void touch(int x, int y) ;  
+    void touch(int x, int y);
 
     /**
      * Display contents of current screen
      */
-    void display() ;       
+    void display();
 
     /**
      * Trigger a nav bar menu item
+     *
      * @param c A, B, C, D or E
      */
-    void execute( String c ) ;  
+    void execute(String c);
 
     /**
      * Navigate to previous screen
      */
-    void prev() ;               
+    void prev();
 
     /**
      * Navigate to next screen
      */
-    void next() ;         
+    void next();
 
     /**
      * Get Screen Name
+     *
      * @return Screen Name
      */
-    String screen() ;           
+    String screen();
 
     /**
      * Get Screen Contents
+     *
      * @return Screen Content
      */
-    String screenContents() ;   
+    String screenContents();
 
 }
 

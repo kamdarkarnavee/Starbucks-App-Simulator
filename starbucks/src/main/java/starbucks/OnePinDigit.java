@@ -1,40 +1,46 @@
+package starbucks;
 
-
-package starbucks ;
-
-/** One Pig Digit State */
-public class OnePinDigit implements IPinState
-{
-    IPinStateMachine machine ;
+/**
+ * One Pig Digit State
+ */
+public class OnePinDigit implements IPinState {
+    IPinStateMachine machine;
 
     /**
      * Constructor
-     * @param  m Reference to State Machine
+     *
+     * @param m Reference to State Machine
      */
-    public OnePinDigit( IPinStateMachine m )
-    {
-        this.machine = m ;
+    public OnePinDigit(IPinStateMachine m) {
+        this.machine = m;
     }
 
-    /** Backspace Event */
+    /**
+     * Backspace Event
+     */
     public void backspace() {
-        machine.setStateNoPinDigits() ;
+        machine.setStateNoPinDigits();
     }
 
-   /**
+    /**
      * Number Event
+     *
      * @param digit Digit pressed
-     */    
-    public void number( String digit ) {
-        machine.setStateTwoPinDigits( digit ) ;
+     */
+    public void number(String digit) {
+        machine.setStateTwoPinDigits(digit);
     }
 
-    /** Valid Pin Event */
+    /**
+     * Valid Pin Event
+     */
     public void validPin() {
 
     }
 
-    /** Invalid Pin Event */
+    /**
+     * Invalid Pin Event
+     */
     public void invalidPin() {
 
     }

@@ -1,10 +1,11 @@
+package starbucks;
 
-
-package starbucks ;
-
-/** Pin Auth Observer Interface */
-public interface IPinAuthObserver
-{
-    /** Auth Event */
-    void authEvent() ;
+/**
+ * Pin Auth Observer Interface
+ */
+public interface IPinAuthObserver {
+    /**
+     * Auth Event
+     */
+    void authEvent();
 }

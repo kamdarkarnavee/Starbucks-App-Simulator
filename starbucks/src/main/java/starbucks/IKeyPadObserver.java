@@ -1,16 +1,14 @@
-
-
-package starbucks ;
+package starbucks;
 
 /**
  * Key Pad Observer Interface
  */
-public interface IKeyPadObserver
-{
+public interface IKeyPadObserver {
     /**
-     * Key Event to Notify Observers 
+     * Key Event to Notify Observers
+     *
      * @param numKeys Number of Digits So Far
      * @param key     Key/Digit Pressed
      */
-    void keyEventUpdate( int numKeys, String key ) ;
+    void keyEventUpdate(int numKeys, String key);
 }
