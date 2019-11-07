@@ -105,6 +105,7 @@ public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadO
      */
     public void authEvent() {
         this.authenticated = true;
+        kp.removeObserver(this);
     }
 }
 

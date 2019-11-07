@@ -52,14 +52,14 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
      * @param y Y Coord
      */
     public void touch(int x, int y) {
-        if (y == 2 && (x == 1 || x == 2 || x == 3)) {
-            this.state = cn;
+        if (y == 2) {
+            if (x == 1 || x == 2 || x == 3)
+                this.state = cn;
+            else
+                this.state.touch(x, y);
         } else if (x == 2 && y == 3) {
             this.state = cc;
         } else {
-            if (state == null) {
-                this.state = cn;
-            }
             this.state.touch(x, y);
         }
     }
@@ -70,7 +70,7 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
     private void resetCardDetails() {
         this.cn = new CardNumber();
         this.cc = new CardCode();
-        this.state = null;
+        this.state = this.cn;
     }
 
     /**

@@ -132,7 +132,6 @@ public class AppAuthProxy implements IApp, IPinAuthObserver {
      */
     public void authEvent() {
         this.authenticated = true;
-        kp.removeObserver(pc);
         kp.removeObserver(pm);
     }
 

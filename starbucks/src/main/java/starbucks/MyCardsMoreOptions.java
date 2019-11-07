@@ -24,7 +24,15 @@ public class MyCardsMoreOptions extends Screen implements ITouchEventHandler, IA
      * @param y Y Coord
      */
     public void touch(int x, int y) {
-        kp.touch(x, y);
+        if (y == 7) {
+            if (x == 1 || x == 2 || x == 3) {
+                frame.setCurrentScreen(this);
+            } else {
+                kp.touch(x, y);
+            }
+        } else {
+            kp.touch(x, y);
+        }
     }
 
     /**

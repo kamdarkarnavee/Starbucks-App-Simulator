@@ -28,8 +28,8 @@ public class MyCardsOptions extends Screen implements ITouchEventHandler, IAppFr
      * @param y Y Coord
      */
     public void touch(int x, int y) {
-        if (y == 7 && (x == 1 || x == 2 || x == 3)) {
-            frame.setCurrentScreen((IScreen) nextHandler);
+        if (x == 2 && y == 4) {
+            frame.setCurrentScreen(this);
         } else {
             if (nextHandler != null)
                 nextHandler.touch(x, y);

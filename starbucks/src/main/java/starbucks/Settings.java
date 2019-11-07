@@ -34,8 +34,9 @@ public class Settings extends Screen implements IAppFrameObserver {
      * @param y Y Coord
      */
     public void touch(int x, int y) {
-        if (y == 1 && (x == 1 || x == 2 || x == 3)) {
-            frame.setCurrentScreen(ac);
+        if (y == 1) {
+            if (x == 1 || x == 2 || x == 3)
+                frame.setCurrentScreen(ac);
         }
     }
 

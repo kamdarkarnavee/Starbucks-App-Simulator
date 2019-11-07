@@ -9,10 +9,12 @@ public class MyCardsPay extends Screen implements ITouchEventHandler, IAppFrameO
     String cardNumber;
     MyCards card;
     private double balance;
+    KeyPad kp;
 
     public MyCardsPay(MyCards card) {
         this.cardNumber = "000000000";
         this.card = card;
+        this.kp = new KeyPad();
     }
 
     /**
@@ -31,17 +33,16 @@ public class MyCardsPay extends Screen implements ITouchEventHandler, IAppFrameO
      * @param y Y Coord
      */
     public void touch(int x, int y) {
-        if (x == 2 && y == 4) {
-            frame.setCurrentScreen((IScreen) nextHandler);
-        } else if (y == 7) {
-//            Do Nothing
-        } else if (x == 3 && y == 3) {
-            frame.cmd("A");
-        } else if (y == 2 && (x == 2 || x == 3)) {
-            doPayment();
+        if (y != 7) {
+            if (x == 3 && y == 3) {
+                frame.cmd("A");
+            } else if (y == 2 && (x == 2 || x == 3)) {
+                doPayment();
+            } else {
+                kp.touch(x, y);
+            }
         } else {
-            if (nextHandler != null)
-                nextHandler.touch(x, y);
+            kp.touch(x, y);
         }
     }
 

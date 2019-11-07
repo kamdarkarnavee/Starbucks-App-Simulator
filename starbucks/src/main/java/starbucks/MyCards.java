@@ -19,8 +19,7 @@ public class MyCards extends Screen implements IAppFrameObserver {
         co = new MyCardsOptions();
         cm = new MyCardsMoreOptions();
 
-        nextHandler = (ITouchEventHandler) cp;
-        ((ITouchEventHandler) cp).setNext((ITouchEventHandler) co);
+        nextHandler = (ITouchEventHandler) co;
         ((ITouchEventHandler) co).setNext((ITouchEventHandler) cm);
 
     }
@@ -68,13 +67,12 @@ public class MyCards extends Screen implements IAppFrameObserver {
      * @param y Y Coord
      */
     public void touch(int x, int y) {
-        if (x == 3 && y == 3) {
-            frame.setCurrentScreen((IScreen) nextHandler);
-        } else if (y == 7) {
-//            Do Nothing
-        } else {
-            if (nextHandler != null)
+        if (y != 7) {
+            if (x == 3 && y == 3) {
+                frame.setCurrentScreen(cp);
+            } else {
                 nextHandler.touch(x, y);
+            }
         }
     }
 
