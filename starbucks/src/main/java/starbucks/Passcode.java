@@ -55,7 +55,6 @@ public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadO
         String value = "";
         if (count > 4) {
             count -= 4;
-            kp.setCountPinDigits(count);
         }
         switch (count) {
             case 0:
@@ -71,12 +70,13 @@ public class Passcode implements ITouchEventHandler, IDisplayComponent, IKeyPadO
                 value = "\n [*][*][*][_]";
                 break;
             case 4:
-                kp.setCountPinDigits(0);
+                count = 0;
                 if (!authenticated) {
                     value = "  Invalid Pin\n\n [_][_][_][_]";
                     break;
                 }
         }
+        kp.setCountPinDigits(count);
         return value;
     }
 

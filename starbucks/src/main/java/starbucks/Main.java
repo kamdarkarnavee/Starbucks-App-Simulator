@@ -50,14 +50,10 @@ final class Main {
                 String y = values[1];
                 msg = "touch: x=" + x + " y=" + y;
                 app.touch(Integer.parseInt(x), Integer.parseInt(y));
-            } else if (cmd.equals("a") || cmd.equals("b")
-                    || cmd.equals("c") || cmd.equals("d")
-                    || cmd.equals("e")
-            ) {
+            }else if(cmd.length() == 1 && "abcd".contains(cmd)){
                 String selection = cmd.toUpperCase();
                 msg = "selected: " + selection;
                 app.execute(selection);
-
             } else if (cmd.startsWith("prev")) {
                 msg = "cmd: previous";
                 app.prev();
