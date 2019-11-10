@@ -32,7 +32,7 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
      * @return Display Contents
      */
     public String display() {
-        return "[" + cn.getCardValue() + "]\n[" + cc.getCardValue() + "]\n\n" + kp.display();
+        return "[" + cn.getCardNumber() + "]\n[" + cc.getCardCode() + "]\n\n" + kp.display();
     }
 
     /**
@@ -77,16 +77,14 @@ public class AddCard extends Screen implements ITouchEventHandler, IAppFrameObse
      * Next Screen
      */
     public void next() {
-        if (cn.getCardValue().length() == 9 && cc.getCardValue().length() == 3) {
-            cardNumber = cn.getCardValue();
-            cardCode = cc.getCardValue();
+        if (cn.getCardNumber().length() == 9 && cc.getCardCode().length() == 3) {
+            cardNumber = cn.getCardNumber();
+            cardCode = cc.getCardCode();
             ((MyCards) card).setBalance(20);
             frame.cmd("A");
             ((MyCards) card).setMyCardPay(cardNumber);
-            resetCardDetails();
-        } else {
-            resetCardDetails();
         }
+        resetCardDetails();
     }
 
     /**

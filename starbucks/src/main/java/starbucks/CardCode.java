@@ -53,7 +53,7 @@ public class CardCode implements ICardState, IKeyPadObserver {
      *
      * @return cardCode value
      */
-    public String getCardValue() {
+    public String getCardCode() {
         return cardCode;
     }
 

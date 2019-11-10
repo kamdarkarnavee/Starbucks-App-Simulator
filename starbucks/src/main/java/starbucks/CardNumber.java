@@ -52,7 +52,7 @@ public class CardNumber implements ICardState, IKeyPadObserver {
      *
      * @return cardNumber value
      */
-    public String getCardValue() {
+    public String getCardNumber() {
         return cardNumber;
     }
 

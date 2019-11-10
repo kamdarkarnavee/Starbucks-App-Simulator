@@ -50,7 +50,7 @@ final class Main {
                 String y = values[1];
                 msg = "touch: x=" + x + " y=" + y;
                 app.touch(Integer.parseInt(x), Integer.parseInt(y));
-            }else if(cmd.length() == 1 && "abcd".contains(cmd)){
+            }else if(cmd.length() == 1 && "abcde".contains(cmd)){
                 String selection = cmd.toUpperCase();
                 msg = "selected: " + selection;
                 app.execute(selection);
